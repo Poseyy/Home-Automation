@@ -1,10 +1,10 @@
 [Desktop Entry]
 Type=Application
-Name=mini-qml
-GenericName=mini-qml
-Comment=mini-qml Comment
+Name=HomeAutomation
+GenericName=HomeAutomation
+Comment=HomeAutomation Comment
 Icon=icon
-Exec=mini-qml
+Exec=HomeAutomation
 Terminal=false
 Categories=Utility;
 Keywords=computer;
