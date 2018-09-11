@@ -39,7 +39,7 @@ ApplicationWindow {
         z: 105
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: topRect.bottom
-        anchors.topMargin: 130
+        anchors.topMargin: 80
         text: "Temperature"
         font.pixelSize: 25
         font.family: "Brandon Grotesque"
@@ -96,6 +96,28 @@ ApplicationWindow {
         anchors.top: lightLabel.bottom
         anchors.topMargin: 10
         text: lightTracker === 0 ? "Off" : "On"
+        font.pixelSize: 22
+        font.family: "Brandon Grotesque"
+        color: "white"
+    }
+    Label{
+        id: airQualityLabel
+        z: 105
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: light.bottom
+        anchors.topMargin: 20
+        text: "Air Quality"
+        font.pixelSize: 25
+        font.family: "Brandon Grotesque"
+        color: "white"
+    }
+    Label{
+        id: airQuality
+        z: 105
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: airQualityLabel.bottom
+        anchors.topMargin: 10
+        text: "High"
         font.pixelSize: 22
         font.family: "Brandon Grotesque"
         color: "white"
