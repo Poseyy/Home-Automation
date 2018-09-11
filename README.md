@@ -20,4 +20,7 @@ After installing Qt, clone this repository and open HomeAutomation.pro using Qt 
 
 You can find instructions for cross-compiling to a Raspberry Pi [here](http://wiki.qt.io/Raspberry_Pi_Beginners_Guide)
 
+![Current Progress](https://i.imgur.com/0nPc1tH.png)
+
+
 
