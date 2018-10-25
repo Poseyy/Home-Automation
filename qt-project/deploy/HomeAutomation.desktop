@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=HomeAutomation
+GenericName=HomeAutomation
+Comment=HomeAutomation Comment
+Icon=icon
+Exec=HomeAutomation
+Terminal=false
+Categories=Utility;
+Keywords=computer;
