@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\Users\Bens-Acer\Desktop\myui3.ui'
 #
-# Created: Thu Oct 25 00:39:29 2018
+# Created: Thu Oct 25 13:53:48 2018
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -11,7 +11,6 @@ from PySide import QtCore, QtGui
 import random
 import time
 import sensors
-
 class Ui_homeApp(object):
     def setupUi(self, homeApp):
         homeApp.setObjectName("homeApp")
@@ -128,6 +127,24 @@ class Ui_homeApp(object):
         self.label_2.setGeometry(QtCore.QRect(-20, 650, 1151, 311))
         self.label_2.setText("")
         self.label_2.setObjectName("label_2")
+        self.onLight = QtGui.QPushButton(self.centralwidget)
+        self.onLight.setGeometry(QtCore.QRect(580, 710, 141, 71))
+        self.onLight.clicked.connect(self.turnOnLight)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.onLight.setFont(font)
+        self.onLight.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: rgb(40, 175, 65);")
+        self.onLight.setObjectName("onLight")
+        self.offLight = QtGui.QPushButton(self.centralwidget)
+        self.offLight.setGeometry(QtCore.QRect(410, 710, 141, 71))
+        self.offLight.clicked.connect(self.turnOffLight)
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.offLight.setFont(font)
+        self.offLight.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: rgb(255, 80, 57);")
+        self.offLight.setObjectName("offLight")
         homeApp.setCentralWidget(self.centralwidget)
         self.statusbar = QtGui.QStatusBar(homeApp)
         self.statusbar.setObjectName("statusbar")
@@ -149,20 +166,39 @@ class Ui_homeApp(object):
         self.light_sensor.setText(QtGui.QApplication.translate("homeApp", "OFF", None, QtGui.QApplication.UnicodeUTF8))
         self.label4.setText(QtGui.QApplication.translate("homeApp", "Air Quality", None, QtGui.QApplication.UnicodeUTF8))
         self.airQuality.setText(QtGui.QApplication.translate("homeApp", "High", None, QtGui.QApplication.UnicodeUTF8))
+        self.onLight.setText(QtGui.QApplication.translate("homeApp", "Turn on light", None, QtGui.QApplication.UnicodeUTF8))
+        self.offLight.setText(QtGui.QApplication.translate("homeApp", "Turn off light", None, QtGui.QApplication.UnicodeUTF8))
+    def turnOnLight(self):
+        self.light_sensor.setText("ON") 
+    def turnOffLight(self):
+        self.light_sensor.setText("OFF") 
     def refreshText(self):
 
         time = QtCore.QTime.currentTime().toString()
         print("Time: " + time)
-
-        temp_sensor = "%.2f" % sensors.readTemperature()
-        humidity_sensor = "%.2f" % sensors.readHumidity()
+        temp_sensor = sensors.readTemperature()
+        humidity_sensor = sensors.readHumidity()
 
         self.temp_sensor.setText(str(temp_sensor))
         self.humidity.setText(str(humidity_sensor)+"%")
-        if temp_sensor > 50:
-            self.light_sensor.setText("ON")
-        elif temp_sensor < 50:
-            self.light_sensor.setText("OFF")
+
+
+def main():
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    MainWindow = QtGui.QMainWindow()
+    ui = Ui_homeApp()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+
+    timer=QtCore.QTimer()
+    timer.timeout.connect(ui.refreshText)
+    timer.start(1000)
+
+    sys.exit(app.exec_())
+
+def generateRandowNumber():
+    return random.randint(1,101)
 
 def main():
     import sys
