@@ -176,8 +176,9 @@ class Ui_homeApp(object):
 
         time = QtCore.QTime.currentTime().toString()
         print("Time: " + time)
-        temp_sensor = sensors.readTemperature()
-        humidity_sensor = sensors.readHumidity()
+
+        temp_sensor = "%.2f " % sensors.readTemperature()
+        humidity_sensor = "%.2f " % sensors.readHumidity()
 
         self.temp_sensor.setText(str(temp_sensor))
         self.humidity.setText(str(humidity_sensor)+"%")
