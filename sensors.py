@@ -8,8 +8,8 @@ bus = smbus.SMBus(1)
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.IN)
-RED_LED = LED()
-GREEN_LED = LED()
+RED_LED = LED(27)
+GREEN_LED = LED(22)
 
 #SI7021 address
 temperatureAddress = 0x40
@@ -23,13 +23,13 @@ def RedLight(value):
         RED_LED.on()
     else
         RED_LED.off()
-        
+
 def GreenLight(value):
     if value == 1
         GREEN_LED.on()
     else
         GREEN_LED.off()
-    
+
 def readLightValue():
     light_sensor = GPIO.input(17)
     time.sleep(0.25)
@@ -63,7 +63,9 @@ def testSensors():
     temperature = readTemperature()
     humidity = readHumidity()
     airQuality = readAirQuality()
+    lightValue = readLightValue()
     print ("Relative Humidity: " + str(humidity))
     print ("Temperature Fahrenheit: " + str(temperature))
     print ("eCO2: " + str(airQuality[1]))
     print ("TVOC: " + str(airQuality[2]))
+    print ("Light Level: " + str(lightValue))
