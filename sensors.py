@@ -2,13 +2,15 @@ import smbus
 import time
 from sgp30 import SGP30
 from gpiozero import LED
+import RPi.GPIO as GPIO
+
 #i2c bus #1 (#0 is only used for IDing on the pi)
 bus = smbus.SMBus(1)
 
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.IN)
-RED_LED = LED(27)
+RED_LED = LED(4)
 GREEN_LED = LED(22)
 
 #SI7021 address
@@ -19,15 +21,15 @@ humidityAddress = 0x40
 airQualityAddress = 0x58
 
 def RedLight(value):
-    if value == 1
+    if value == 1:
         RED_LED.on()
-    else
+    else:
         RED_LED.off()
 
 def GreenLight(value):
-    if value == 1
+    if value == 1:
         GREEN_LED.on()
-    else
+    else:
         GREEN_LED.off()
 
 def readLightValue():
