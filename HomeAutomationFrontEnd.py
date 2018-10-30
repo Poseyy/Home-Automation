@@ -170,10 +170,12 @@ class Ui_homeApp(object):
         self.offLight.setText(QtGui.QApplication.translate("homeApp", "Turn off light", None, QtGui.QApplication.UnicodeUTF8))
     def turnOnLight(self):
         self.light_sensor.setText("ON")
-        RedLight(1)
+        sensors.RedLight(1)
+        print("Turned on red light")
     def turnOffLight(self):
         self.light_sensor.setText("OFF")
-        RedLight(0)
+        sensors.RedLight(0)
+        print("Turned off red light")
     def refreshText(self):
 
         time = QtCore.QTime.currentTime().toString()
