@@ -247,8 +247,12 @@ class Ui_homeApp(object):
         temp_sensor = "%.2f " % sensors.readTemperature()
         humidity_sensor = "%.2f " % sensors.readHumidity()
 
+        airQuality = sensors.readAirQuality()
+
         self.temp_sensor.setText(str(temp_sensor))
         self.humidity.setText(str(humidity_sensor)+"%")
+        self.tvocs.setText(str(airQuality[2]))
+        self.eco2.setText(str(airQuality[1]))
 
 
 def main():
