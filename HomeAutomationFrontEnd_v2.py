@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\Users\Bens-Acer\Desktop\myui3.ui'
 #
-# Created: Tue Oct 30 20:40:19 2018
+# Created: Tue Oct 30 21:04:11 2018
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -154,6 +154,7 @@ class Ui_homeApp(object):
         self.on_button.setStyleSheet("background-color: rgb(72, 173, 57);\n"
 "color: rgb(255, 255, 255);")
         self.on_button.setObjectName("on_button")
+        self.on_button.clicked.connect(self.turnOnLight)
         self.line_4 = QtGui.QFrame(self.centralwidget)
         self.line_4.setGeometry(QtCore.QRect(20, 670, 1071, 20))
         self.line_4.setFrameShape(QtGui.QFrame.HLine)
@@ -167,6 +168,7 @@ class Ui_homeApp(object):
         self.off_button.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: rgb(255, 103, 89);")
         self.off_button.setObjectName("off_button")
+        self.off_button.clicked.connect(self.turnOffLight)
         self.label4_2 = QtGui.QLabel(self.centralwidget)
         self.label4_2.setGeometry(QtCore.QRect(-20, 690, 1161, 61))
         font = QtGui.QFont()
@@ -229,7 +231,7 @@ class Ui_homeApp(object):
         self.label11.setText(QtGui.QApplication.translate("homeApp", "eCO₂:", None, QtGui.QApplication.UnicodeUTF8))
         self.label12.setText(QtGui.QApplication.translate("homeApp", "TVOCs:", None, QtGui.QApplication.UnicodeUTF8))
         self.tvocs.setText(QtGui.QApplication.translate("homeApp", "0.0", None, QtGui.QApplication.UnicodeUTF8))
-	def turnOnLight(self):
+    def turnOnLight(self):
         self.light_sensor.setText("ON")
         sensors.RedLight(1)
         print("Turned on red light")
@@ -247,7 +249,8 @@ class Ui_homeApp(object):
 
         self.temp_sensor.setText(str(temp_sensor))
         self.humidity.setText(str(humidity_sensor)+"%")
-		
+
+
 def main():
     import sys
     app = QtGui.QApplication(sys.argv)
@@ -256,16 +259,12 @@ def main():
     ui.setupUi(MainWindow)
     MainWindow.show()
 
-    RedLight(0)
 
     timer=QtCore.QTimer()
     timer.timeout.connect(ui.refreshText)
     timer.start(1000)
 
     sys.exit(app.exec_())
-
-def generateRandowNumber():
-    return random.randint(1,101)
 
 def generateRandowNumber():
     return random.randint(1,101)
