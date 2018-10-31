@@ -6,6 +6,8 @@ import RPi.GPIO as GPIO
 
 #i2c bus #1 (#0 is only used for IDing on the pi)
 bus = smbus.SMBus(1)
+chip = SGP30(bus)
+chip.open()
 
 
 GPIO.setmode(GPIO.BCM)
@@ -58,8 +60,7 @@ def readTemperature():
 
 #Returns tuple with timestamp, eCO2 value, TVOC value
 def readAirQuality():
-    with SGP30(bus) as chip:
-        return chip.measure_air_quality()
+    return chip.measure_air_quality()
 
 def testSensors():
     temperature = readTemperature()
