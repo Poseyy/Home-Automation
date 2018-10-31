@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'C:\Users\Bens-Acer\Desktop\myui3.ui'
 #
-# Created: Tue Oct 30 21:04:11 2018
+# Created: Tue Oct 30 23:54:56 2018
 #      by: pyside-uic 0.2.15 running on PySide 1.2.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -34,7 +34,7 @@ class Ui_homeApp(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.temp_sensor = QtGui.QLabel(self.centralwidget)
-        self.temp_sensor.setGeometry(QtCore.QRect(-30, 160, 1151, 131))
+        self.temp_sensor.setGeometry(QtCore.QRect(-30, 180, 1151, 91))
         font = QtGui.QFont()
         font.setPointSize(17)
         self.temp_sensor.setFont(font)
@@ -42,7 +42,7 @@ class Ui_homeApp(object):
         self.temp_sensor.setAlignment(QtCore.Qt.AlignCenter)
         self.temp_sensor.setObjectName("temp_sensor")
         self.label1 = QtGui.QLabel(self.centralwidget)
-        self.label1.setGeometry(QtCore.QRect(-10, 130, 1151, 91))
+        self.label1.setGeometry(QtCore.QRect(-10, 130, 1151, 61))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(26)
@@ -109,7 +109,7 @@ class Ui_homeApp(object):
         self.light_sensor.setAlignment(QtCore.Qt.AlignCenter)
         self.light_sensor.setObjectName("light_sensor")
         self.label4 = QtGui.QLabel(self.centralwidget)
-        self.label4.setGeometry(QtCore.QRect(-20, 510, 1161, 91))
+        self.label4.setGeometry(QtCore.QRect(-10, 510, 1161, 91))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(26)
