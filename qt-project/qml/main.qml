@@ -14,6 +14,17 @@ ApplicationWindow {
         anchors.fill: parent
         color: "#2B2C31"
     }
+    Label {
+        id: light
+        z: 105
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.top: lightLabel.bottom
+        anchors.topMargin: 10
+        text: lightTracker === 0 ? "Off" : "On"
+        font.pixelSize: 22
+        font.family: "Brandon Grotesque"
+        color: "white"
+    }
     Rectangle {
         id: topRect
         z: 100
@@ -89,17 +100,7 @@ ApplicationWindow {
         font.family: "Brandon Grotesque"
         color: "white"
     }
-    Label{
-        id: light
-        z: 105
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: lightLabel.bottom
-        anchors.topMargin: 10
-        text: lightTracker === 0 ? "Off" : "On"
-        font.pixelSize: 22
-        font.family: "Brandon Grotesque"
-        color: "white"
-    }
+
     Label{
         id: airQualityLabel
         z: 105
